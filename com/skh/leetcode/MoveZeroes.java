@@ -1,4 +1,4 @@
-package MoveZeroes;
+package leetcode;
 
 /**
  * @Description
