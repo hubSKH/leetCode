@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.linkedList;
 
 import assit.ListNode;
 
