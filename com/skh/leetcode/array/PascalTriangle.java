@@ -40,9 +40,6 @@ public class PascalTriangle {
             return lists;
         }
         for(int i=1;i<=numRows;i++){
-            if(i>1){
-                lastList= lists.get (i-2);
-            }
             List<Integer> integers = new ArrayList<> ();
             for(int j=0;j<i;j++){
                 if(j==0 || j==i-1){
@@ -53,6 +50,7 @@ public class PascalTriangle {
                 }
             }
             lists.add (integers);
+            lastList =integers;
         }
         return lists;
     }
