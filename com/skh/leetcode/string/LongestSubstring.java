@@ -1,9 +1,7 @@
 package leetcode.string;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
+ * 3. 无重复字符的最长子串
  * 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
  *
  * 输入: "abcabcbb"
@@ -12,11 +10,11 @@ import java.util.Set;
  */
 public class LongestSubstring {
     public static void main(String[] args) {
-        String str= "abcabcbb";
+        String str= "";
         System.out.println (lengthOfLongestSubstring (str));
     }
 
-    public static int lengthOfLongestSubstring(String s) {
+    /*public static int lengthOfLongestSubstring(String s) {
         int max=0,len= s.length ();
         int i=0 ,j =0;
         Set<Character> characterSet = new HashSet<Character> ();
@@ -26,6 +24,23 @@ public class LongestSubstring {
             } else {
                 characterSet.add (s.charAt (j++));
                 max = Math.max (max, j - i);
+            }
+        }
+        return max;
+    }*/
+    public static int lengthOfLongestSubstring(String s) {
+        int max=0,len= s.length ();
+        int i=0 ,startIdx=0;
+        char[] chars = s.toCharArray ();
+        for(;i<len;i++){
+            for(int j=startIdx;j<i;j++){
+                if(chars[j] == chars[i]){
+                    startIdx = j+1;
+                    break;
+                }
+            }
+            if(i-startIdx+1>max){
+                max = i-startIdx+1;
             }
         }
         return max;
