@@ -1,11 +1,10 @@
 package leetcode.array;
 
-import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
+ * 49. 两个数组的交集
  * @Description
  * 给定两个数组，编写一个函数来计算它们的交集。
  *
