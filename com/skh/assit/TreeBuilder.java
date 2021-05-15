@@ -20,7 +20,7 @@ public class TreeBuilder {
         TreeNode root = new TreeNode (integers[0]);
         treeNodes.addLast (root);
         int i=1;
-        while (!treeNodes.isEmpty ()||i>=integers.length){
+        while (i<integers.length){
             TreeNode node = treeNodes.poll ();
             if(integers[i]!=null){
                 TreeNode left = new TreeNode (integers[i]);
