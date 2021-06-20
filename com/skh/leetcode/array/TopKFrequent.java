@@ -1,9 +1,6 @@
 package leetcode.array;
 
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.PriorityQueue;
+import java.util.*;
 
 /**
  * 347. 前 K 个高频元素
@@ -27,24 +24,43 @@ public class TopKFrequent {
         }
         System.out.println ("]");
     }
-
     public int[] topKFrequent(int[] nums, int k) {
-        PriorityQueue<Map.Entry<Integer, Integer>> priorityQueue = new PriorityQueue (nums.length, (Comparator<Map.Entry<Integer, Integer>>) (o1, o2) -> o2.getValue ().compareTo (o1.getValue ()));
-        Map<Integer, Integer> map = new HashMap<> ();
-        for (int num : nums) {
-            if (map.containsKey (num)) {
-                map.put (num, map.get (num) + 1);
-            } else {
-                map.put (num, 1);
+        Arrays.sort (nums);
+        PriorityQueue<int[]> priorityQueue = new PriorityQueue<> ((o1, o2) -> o2[1] - o1[1]);
+        for (int i = 0; i < nums.length; i++) {
+            int num = nums[i];
+            int count = 1;
+            while (i + 1 < nums.length && nums[i + 1] == num) {
+                i++;
+                count++;
             }
-        }
-        for (Map.Entry<Integer, Integer> entry : map.entrySet ()) {
-            priorityQueue.add (entry);
+            priorityQueue.add (new int[]{nums[i], count});
         }
         int[] result = new int[k];
         for (int i = 0; i < k; i++) {
-            result[i] = priorityQueue.poll ().getKey ();
+            int[] poll = priorityQueue.poll ();
+            result[i] = poll[0];
         }
         return result;
     }
+
+//    public int[] topKFrequent(int[] nums, int k) {
+//        PriorityQueue<Map.Entry<Integer, Integer>> priorityQueue = new PriorityQueue (nums.length, (Comparator<Map.Entry<Integer, Integer>>) (o1, o2) -> o2.getValue ().compareTo (o1.getValue ()));
+//        Map<Integer, Integer> map = new HashMap<> ();
+//        for (int num : nums) {
+//            if (map.containsKey (num)) {
+//                map.put (num, map.get (num) + 1);
+//            } else {
+//                map.put (num, 1);
+//            }
+//        }
+//        for (Map.Entry<Integer, Integer> entry : map.entrySet ()) {
+//            priorityQueue.add (entry);
+//        }
+//        int[] result = new int[k];
+//        for (int i = 0; i < k; i++) {
+//            result[i] = priorityQueue.poll ().getKey ();
+//        }
+//        return result;
+//    }
 }
