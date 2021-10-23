@@ -1,4 +1,4 @@
-package leetcode.array;
+package leetcode.search;
 
 /**
  * 79. 单词搜索
