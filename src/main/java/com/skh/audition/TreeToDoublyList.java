@@ -2,8 +2,6 @@ package audition;
 
 import assit.Node;
 
-import java.util.LinkedList;
-
 /**
  * 面试题36. 二叉搜索树与双向链表
  * @Description

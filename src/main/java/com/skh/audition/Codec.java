@@ -1,6 +1,5 @@
 package audition;
 
-import assit.Node;
 import assit.TreeNode;
 
 import java.util.LinkedList;

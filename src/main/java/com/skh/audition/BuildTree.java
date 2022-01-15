@@ -2,8 +2,6 @@ package audition;
 
 import assit.TreeNode;
 
-import java.util.Base64;
-
 /**
  * 面试题07. 重建二叉树
  * @Description

@@ -1,9 +1,7 @@
 package leetcode.string;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 763. 划分字母区间

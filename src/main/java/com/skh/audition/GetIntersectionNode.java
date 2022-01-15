@@ -19,17 +19,30 @@ public class GetIntersectionNode {
 
         ListNode a1=new ListNode (1);
         ListNode a2=new ListNode (2);
-        a1.next=a2;a2.next=c1;
+        a1.next=a2;
 
-        ListNode b1=new ListNode (1);
-        ListNode b2=new ListNode (2);
-        ListNode b3=new ListNode (3);
-        b1.next=b2;b2.next=b3;b3.next=c1;
+        ListNode b1=new ListNode (7);
+        ListNode b2=new ListNode (8);
+        ListNode b3=new ListNode (9);
+        b1.next=b2;b2.next=b3;
 
-        ListNode intersectionNode = getIntersectionNode (a1, b1);
+        ListNode intersectionNode = new GetIntersectionNode ().getIntersectionNode (a1, b1);
+        System.out.println (intersectionNode);
 
     }
-    public static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) {
+            return null;
+        }
+        ListNode pA = headA, pB = headB;
+        while (pA != pB) {
+            pA = pA == null ? headB : pA.next;
+            pB = pB == null ? headA : pB.next;
+        }
+        return pA;
+    }
+
+ /*   public static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         ListNode node1 = headA, node2 = headB;
         int count =0;
         while (node1!=null) {
@@ -53,6 +66,6 @@ public class GetIntersectionNode {
             node2 = node2.next;
         }
         return node1;
-    }
+    }*/
 
 }

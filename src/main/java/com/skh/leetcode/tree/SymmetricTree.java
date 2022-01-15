@@ -2,9 +2,6 @@ package leetcode.tree;
 
 import assit.TreeNode;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * 101. 对称二叉树
  *
